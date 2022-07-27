@@ -1,0 +1,18 @@
+version: "3.0"
+
+services:
+  project-zomboid:
+    image: cyrale/project-zomboid
+    container_name: game-project-zomboid
+    restart: always
+    env_file:
+      - /durandal/docker/env/game-project-zomboid/server.env
+    ports:
+      - "8766:8766/udp"
+      - "8767:8767/udp"
+      - "16261:16261/udp"
+      - "16262-16272:16262-16272"
+      - "28000:28000"
+    volumes:
+      - /donnager/vol/game/project-zomboid/data:/server-data
+      - /donnager/vol/game/project-zomboid/files:/server-files
